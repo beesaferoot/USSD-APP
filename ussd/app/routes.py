@@ -18,7 +18,6 @@ MENU_OPTIONS = {
 _defualt = MENU_OPTIONS[""]
 @app.route("/", methods=['GET', 'POST'])
 def ussd_callback():
-    
     # get request fields
     sessionId = request.get("sessionId", None)
     phoneNumber = request.get("phoneNumber", None)
@@ -27,8 +26,8 @@ def ussd_callback():
     text = request.get("text", None)
     response = ""
 
-    if MENU_OPTIONS.get(text):
-        response = "".join(MENU_OPTIONS.get(text, _default))
+    response = "".join(MENU_OPTIONS.get(text, _default))
+    
 
     return response
 
