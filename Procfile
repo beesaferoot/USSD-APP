@@ -1,0 +1,1 @@
+web: gunicorn ussd:app --log-file=-
