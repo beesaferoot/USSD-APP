@@ -25,7 +25,7 @@ def ussd_callback():
     serviceCode = request.args.get("serviceCode", None)
     text = request.args.get("text", None)
     response = ""
-
+    print(text)
     response = "".join(MENU_OPTIONS.get(text, _default))
     
 
