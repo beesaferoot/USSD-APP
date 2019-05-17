@@ -12,6 +12,7 @@ MENU_OPTIONS = {
     "1*1": ["CON Select Network\n", "1. Glo.\n", "2. Mtn.\n"],
     "1*1*1": ["END Recharge without Data Bonus = *123*PIN#\n", "Recharge with Data Bonus = *222*PIN#\n"],
     "1*1*2": ["END Recharge = *555*PIN#\n"],
+    "1*2":["CON Select Network\n", "1. Glo.\n", "2. Mtn.\n"],
     "1*2*1": ["END Check Balance = #124#\n"],
     "1*2*2": ["END Check Balance = *556#\n"],
 }
@@ -25,7 +26,7 @@ def ussd_callback():
     serviceCode = request.values.get("serviceCode", None)
     text = request.values.get("text", None)
     response = ""
-    print(sessionId, phoneNumber, networkCode,text, end=",\n")
+    print(f'Phone Number: {phoneNumber}\nServiceCode: {serviceCode}\ntext: {text}\n')
     response = "".join(MENU_OPTIONS.get(text, _default))
     
 
