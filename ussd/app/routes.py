@@ -25,7 +25,7 @@ def ussd_callback():
     serviceCode = request.values.get("serviceCode", None)
     text = request.values.get("text", None)
     response = ""
-    print(sessionId, PhoneNumber, networkCode,text, end=",\n")
+    print(sessionId, phoneNumber, networkCode,text, end=",\n")
     response = "".join(MENU_OPTIONS.get(text, _default))
     
 
