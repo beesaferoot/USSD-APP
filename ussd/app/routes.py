@@ -19,11 +19,11 @@ _default = MENU_OPTIONS[""]
 @app.route("/", methods=['GET', 'POST'])
 def ussd_callback():
     # get request fields
-    sessionId = request.args.get("sessionId", None)
-    phoneNumber = request.args.get("phoneNumber", None)
-    networkCode = request.args.get("networkCode", None)
-    serviceCode = request.args.get("serviceCode", None)
-    text = request.args.get("text", None)
+    sessionId = request.values.get("sessionId", None)
+    phoneNumber = request.values.get("phoneNumber", None)
+    networkCode = request.values.get("networkCode", None)
+    serviceCode = request.values.get("serviceCode", None)
+    text = request.values.get("text", None)
     response = ""
     print(sessionId, PhoneNumber, networkCode,text, end=",\n")
     response = "".join(MENU_OPTIONS.get(text, _default))
