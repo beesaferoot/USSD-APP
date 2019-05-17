@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 app.config.from_mapping({"SECRET_KEY": "dev"})
 
-from app import routes
+from . import routes
