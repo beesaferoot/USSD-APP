@@ -1,5 +1,5 @@
 from flask import request
-from app import app
+from . import app
 '''
     USSD callback endpoint to AF(Africanstalking) API
     @return -> response 
