@@ -15,15 +15,15 @@ MENU_OPTIONS = {
     "1*2*1": ["END Check Balance = #124#\n"],
     "1*2*2": ["END Check Balance = *556#\n"],
 }
-_defualt = MENU_OPTIONS[""]
+_default = MENU_OPTIONS[""]
 @app.route("/", methods=['GET', 'POST'])
 def ussd_callback():
     # get request fields
-    sessionId = request.get("sessionId", None)
-    phoneNumber = request.get("phoneNumber", None)
-    networkCode = request.get("networkCode", None)
-    serviceCode = request.get("serviceCode", None)
-    text = request.get("text", None)
+    sessionId = request.args.get("sessionId", None)
+    phoneNumber = request.args.get("phoneNumber", None)
+    networkCode = request.args.get("networkCode", None)
+    serviceCode = request.args.get("serviceCode", None)
+    text = request.args.get("text", None)
     response = ""
 
     response = "".join(MENU_OPTIONS.get(text, _default))
