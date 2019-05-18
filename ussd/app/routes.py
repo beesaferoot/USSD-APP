@@ -27,9 +27,14 @@ def ussd_callback():
     text = request.values.get("text", None)
     response = ""
     print(f'Phone Number: {phoneNumber}\nServiceCode: {serviceCode}\ntext: {text}\n')
-    response = "".join(MENU_OPTIONS.get(text, _default))
+    # response = "".join(MENU_OPTIONS.get(text, _default))
     
-
+    # check if text equals ""
+    if text == "":
+        response = "".join(MENU_OPTIONS.get(text, _default))
+    else:
+        # since text != "" and not in MENU_OPTIONS got back to previously viewed [:-2]
+        response = "".join(MENU_OPTIONS.get(text, text[:-2]))
     return response
 
     
