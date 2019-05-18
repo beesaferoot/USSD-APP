@@ -34,7 +34,7 @@ def ussd_callback():
         response = "".join(MENU_OPTIONS.get(text, _default))
     else:
         # since text != "" and not in MENU_OPTIONS got back to previously viewed [:-2]
-        response = "".join(MENU_OPTIONS.get(text, text[:-2]))
+        response = "".join(MENU_OPTIONS.get(text, MENU_OPTIONS[text[:-2]]))
     return response
 
     
