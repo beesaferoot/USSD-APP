@@ -16,7 +16,7 @@ MENU_OPTIONS = {
     "1*2*1": ["END Check Balance = #124#\n"],
     "1*2*2": ["END Check Balance = *556#\n"],
 }
-_default = MENU_OPTIONS[""]
+_default = "END Sorry Invalid Option Retry."
 @app.route("/", methods=['GET', 'POST'])
 def ussd_callback():
     # get request fields
@@ -30,11 +30,7 @@ def ussd_callback():
     # response = "".join(MENU_OPTIONS.get(text, _default))
     
     # check if text equals ""
-    if text == "":
-        response = "".join(MENU_OPTIONS.get(text, _default))
-    else:
-        # since text != "" and not in MENU_OPTIONS got back to previously viewed [:-2]
-        response = "".join(MENU_OPTIONS.get(text, MENU_OPTIONS[text[:-2]]))
+    response = "".join(MENU_OPTIONS.get(text, _default))
     return response
 
     
